@@ -12,6 +12,9 @@
         state: present
     
     - name: Building artefact
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /tmp
 
 
     - name: Copy artefact to prod
