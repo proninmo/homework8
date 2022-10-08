@@ -42,8 +42,8 @@
 
 #db-[99:101]-node.example.com
 
-[web]
+[build]
 10.129.0.19
 
-[db]
+[prod]
 10.129.0.26
