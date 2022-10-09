@@ -25,7 +25,7 @@
     - name: Copy artefact to prod
       become: true
       copy:
-        src: /tmp/box/target/*.war
+        src: build:/tmp/box/target/*.war
         dest: /tmp
 
 
