@@ -26,7 +26,7 @@
       become: true
       copy:
         src: /tmp/box/target/*.war
-        dest: prod:/tmp
+        dest: /tmp
 
 
 #- name: Install prod packages & start artefact
