@@ -50,5 +50,5 @@
     - name: Move artefact to tomcat
       become: true
       synchronize:
-        src: tmp/*.war
-        dest: /var/lib/tomcat*/webapps
+        src: /tmp/*.war
+        dest: /var/lib/tomcat*/webapps/
