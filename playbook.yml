@@ -23,10 +23,10 @@
         chdir: /tmp/box
           
     - name: Copy artefact to prod
-      become: true
-      copy:
-        src: tmp/box/target/*.war
-        dest: prod:/tmp
+      synchronized:
+        src: /tmp/box/target/*.war
+        dest: rsync://prod/tmp/
+      delegate_to: build
 
 
 #- name: Install prod packages & start artefact
