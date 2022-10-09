@@ -11,37 +11,41 @@
         - git
         state: present
     
-    - name: Building artefact
+    - name: Get source code of artefact
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /tmp
 
-
+    - name: Building artefact
+      command: 
+        args:
+          - /usr/bin/mvn
+          - -f boxfuse-*/
+          
     - name: Copy artefact to prod
       copy:
-        src: boxfuse-*/target/*.war
+        src: /tmp/boxfuse-*/target/*.war
         dest: prod:/tmp
 
 
-- name: Install prod packages & start artefact
-  hosts: prod
-  become: true
-
-  tasks:
-    - name: Install tomcat & java
-      apt:
-        pkg:
-        - tomcat
-        - default-jdk
-        state: present
-
-    - name: Ensure tomcat is started
-      service: 
-        name: tomcat
-        state: started
-    
-    - name: Move artefact to tomcat
-      copy:
-        src: /tmp/*.war
-        dest: /var/lib/tomcat*/webapps
-
+#- name: Install prod packages & start artefact
+#  hosts: prod
+#  become: true
+#
+#  tasks:
+#    - name: Install tomcat & java
+#      apt:
+#        pkg:
+#        - tomcat
+#        - default-jdk
+#        state: present
+#
+#    - name: Ensure tomcat is started
+#      service: 
+#        name: tomcat
+#        state: started
+#    
+#    - name: Move artefact to tomcat
+#      copy:
+#        src: /tmp/*.war
+#        dest: /var/lib/tomcat*/webapps
