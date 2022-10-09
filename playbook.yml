@@ -17,10 +17,10 @@
         dest: /tmp/box
 
     - name: Building artefact
-      command: 
-        args:
-          - /usr/bin/mvn
-          - -f /tmb/box/boxfuse-*/
+      command: /usr/bin/mvn
+      become: true
+      args:
+        chdir: /tmp/box/boxfuse-*/
           
     - name: Copy artefact to prod
       copy:
