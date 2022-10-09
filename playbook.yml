@@ -38,7 +38,7 @@
     - name: Install tomcat & java
       apt:
         pkg:
-        - tomcat
+        - tomcat9
         - default-jdk
         state: latest
 
