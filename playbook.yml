@@ -17,7 +17,7 @@
         dest: /tmp/box
 
     - name: Building artefact
-      shell: mvn
+      shell: mvn clean install
       become: true
       args:
         chdir: /tmp/box/
