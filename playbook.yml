@@ -14,17 +14,17 @@
     - name: Get source code of artefact
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /tmp
+        dest: /tmp/box
 
     - name: Building artefact
       command: 
         args:
           - /usr/bin/mvn
-          - -f boxfuse-*/
+          - -f /tmb/box/boxfuse-*/
           
     - name: Copy artefact to prod
       copy:
-        src: /tmp/boxfuse-*/target/*.war
+        src: /tmp/box/boxfuse-*/target/*.war
         dest: prod:/tmp
 
 
