@@ -17,7 +17,7 @@
         dest: /tmp/box
 
     - name: Building artefact
-      command: /usr/bin/mvn
+      shell: mvn
       become: true
       args:
         chdir: /tmp/box/
