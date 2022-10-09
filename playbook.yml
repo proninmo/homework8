@@ -22,7 +22,7 @@
       args:
         chdir: /tmp/box
           
-    - name: Copy artefact from build server to master
+    - name: Copy artefact from build server to control server
       become: true
       synchronize:
         mode: pull
@@ -40,14 +40,14 @@
         pkg:
         - tomcat9
         - default-jdk
-        state: latest
+        state: present
 
     - name: Ensure tomcat is started
       service: 
         name: tomcat9
         state: started
     
-    - name: Move artefact to tomcat
+    - name: Copy artefact to tomcat
       become: true
       synchronize:
         src: /tmp/*.war
