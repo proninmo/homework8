@@ -24,7 +24,7 @@
           
     - name: Copy artefact to prod
       copy:
-        src: /tmp/box/target/*.war
+        src: /tmp/box/target/hello-1.0.war
         dest: prod:/tmp
 
 
