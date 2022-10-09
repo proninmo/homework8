@@ -27,7 +27,7 @@
       synchronize:
         mode: pull
         src: /tmp/box/target/*.war
-        dest: /tmp/
+        dest: /etc/ansible/
 
 
 - name: Install prod packages & start artefact
@@ -50,5 +50,5 @@
     - name: Copy artefact to tomcat
       become: true
       synchronize:
-        src: /tmp/*.war
+        src: hello*.war
         dest: /var/lib/tomcat*/webapps/
