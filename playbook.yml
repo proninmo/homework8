@@ -30,24 +30,24 @@
         dest: /tmp/
 
 
-#- name: Install prod packages & start artefact
-#  hosts: prod
-#  become: true
-#
-#  tasks:
-#    - name: Install tomcat & java
-#      apt:
-#        pkg:
-#        - tomcat
-#        - default-jdk
-#        state: present
-#
-#    - name: Ensure tomcat is started
-#      service: 
-#        name: tomcat
-#        state: started
-#    
-#    - name: Move artefact to tomcat
-#      copy:
-#        src: /tmp/*.war
-#        dest: /var/lib/tomcat*/webapps
+- name: Install prod packages & start artefact
+  hosts: prod
+  become: true
+
+  tasks:
+    - name: Install tomcat & java
+      apt:
+        pkg:
+        - tomcat
+        - default-jdk
+        state: present
+
+    - name: Ensure tomcat is started
+      service: 
+        name: tomcat
+        state: started
+    
+    - name: Move artefact to tomcat
+      synchronize:
+        src: /tmp/*.war
+        dest: /var/lib/tomcat*/webapps
