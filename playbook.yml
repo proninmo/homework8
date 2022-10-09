@@ -27,7 +27,7 @@
       synchronize:
         mode: pull
         src: /tmp/box/target/*.war
-        dest: /tmp/*.war
+        dest: /tmp
 
 
 - name: Install prod packages & start artefact
