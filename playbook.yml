@@ -40,7 +40,7 @@
         pkg:
         - tomcat
         - default-jdk
-        state: present
+        state: latest
 
     - name: Ensure tomcat is started
       service: 
