@@ -23,8 +23,9 @@
         chdir: /tmp/box/
           
     - name: Copy artefact to prod
+      become: true
       copy:
-        src: /tmp/box/target/hello-1.0.war
+        src: /tmp/box/target/*.war
         dest: prod:/tmp
 
 
