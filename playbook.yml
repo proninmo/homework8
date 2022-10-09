@@ -20,11 +20,11 @@
       command: /usr/bin/mvn
       become: true
       args:
-        chdir: /tmp/box/boxfuse-*/
+        chdir: /tmp/box/
           
     - name: Copy artefact to prod
       copy:
-        src: /tmp/box/boxfuse-*/target/*.war
+        src: /tmp/box/target/*.war
         dest: prod:/tmp
 
 
