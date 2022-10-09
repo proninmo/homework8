@@ -26,7 +26,7 @@
       become: true
       synchronize:
         mode: pull
-        src: rsync://build/tmp/box/target/*.war
+        src: /tmp/box/target/*.war
         dest: /tmp/
 
 
