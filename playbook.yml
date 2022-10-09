@@ -23,6 +23,7 @@
         chdir: /tmp/box
           
     - name: Copy artefact from build server to master
+      become: true
       synchronize:
         mode: pull
         src: rsync:/build/tmp/box/target/*.war
