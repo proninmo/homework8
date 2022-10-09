@@ -22,11 +22,11 @@
       args:
         chdir: /tmp/box
           
-    - name: Copy artefact to prod
+    - name: Copy artefact from build server to master
       synchronize:
-        src: /tmp/box/target/*.war
-        dest: rsync://prod/tmp/
-      delegate_to: build
+        mode: pull
+        src: rsync:/build/tmp/box/target/*.war
+        dest: /tmp/
 
 
 #- name: Install prod packages & start artefact
