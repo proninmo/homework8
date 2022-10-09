@@ -50,5 +50,5 @@
     - name: Copy artefact to tomcat
       become: true
       synchronize:
-        src: hello*.war
+        src: ./hello*.war
         dest: /var/lib/tomcat*/webapps/
